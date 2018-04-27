@@ -1,0 +1,31 @@
+@model MVC.Models.User
+
+@{
+    ViewData["Title"] = "用户详细信息";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>用户详细信息</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="User" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label">用户号</label>
+                <input asp-for="ID" class="form-control" value="@Model.ID" readonly/>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitNumber" class="control-label">单元号</label>
+                <input asp-for="UnitNumber" class="form-control" value="@Model.UnitNumber" readonly/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">状态</label>
+                <input asp-for="Status" class="form-control" value="@Model.Status" readonly/>
+            </div>
+        </form>
+    </div>
+</div>

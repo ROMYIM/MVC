@@ -1,0 +1,43 @@
+@model IEnumerable<MVC.Models.User>
+
+@{
+    ViewData["Title"] = "用户列表";
+}
+
+<div class="row">
+    <div class="col-md-4"><h2>用户列表</h2></div>
+    <div class="col-md-6" style="padding-top: 2em">
+        <!-- <h4>查询用户：</h4> -->
+        <input id="userId" type="text" style="height:2em"/>
+        <button id="searchBtn" class="btn btn-default" onclick="window.location.href='Detail/ + $('#userId').val()'">搜索用户</button>
+    </div>
+    <div class="col-md-2" style="padding-top:2em">
+        <p>
+            <a asp-action="Create"><h4>添加用户</h4></a>
+        </p>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ID)</th>
+            <th>@Html.DisplayNameFor(model => model.UnitNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                <td>@Html.DisplayFor(modelItem => item.UnitNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a asp-action="Detail" asp-route-id="@item.ID">详细信息</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a asp-action="Delete" asp-route-id="@item.ID" onclick="alert('确定删除吗？删除后无法恢复！')">删除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

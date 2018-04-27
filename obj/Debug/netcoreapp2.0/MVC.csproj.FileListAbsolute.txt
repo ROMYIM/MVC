@@ -8,3 +8,14 @@ F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Debug\netcoreapp2.0\MVC.Assembl
 F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
 F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Debug\netcoreapp2.0\MVC.dll
 F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Debug\netcoreapp2.0\MVC.pdb
+C:\Users\PC-001\source\MVC\bin\Debug\netcoreapp2.0\MVC.deps.json
+C:\Users\PC-001\source\MVC\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.json
+C:\Users\PC-001\source\MVC\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.dev.json
+C:\Users\PC-001\source\MVC\bin\Debug\netcoreapp2.0\MVC.dll
+C:\Users\PC-001\source\MVC\bin\Debug\netcoreapp2.0\MVC.pdb
+C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.csproj.CoreCompileInputs.cache
+C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfoInputs.cache
+C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
+C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.dll
+C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.pdb
+C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.csprojResolveAssemblyReference.cache
