@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -45,11 +44,11 @@ namespace MVC.Controllers
             }
         }
 
-        public async Task<IActionResult> Detail(string id)
+        public async Task<IActionResult> Detail(string id, string view)
         {
             if (string.IsNullOrEmpty(id))
             {
-                throw new NullReferenceException("用户号不能为空");
+                return BadRequest("用户号不能为空");
             } 
             else
             {
@@ -60,22 +59,29 @@ namespace MVC.Controllers
                 }
                 else
                 {
-                    return View(model: user);
+                    return View(model: user, viewName: view);
                 }
             }    
         }
 
+        
         public async Task<IActionResult> Delete(string id)
         {
-            if (string.IsNullOrEmpty(id))
+            if (!string.IsNullOrEmpty(id))
             {
-                throw new NullReferenceException("用户号不能为空");
+                int deleteCount = await _context.Database.ExecuteSqlCommandAsync($"delete from user where id = {id}");
+                _logger.LogDebug($"删除数：{deleteCount}");
             }
-            else
-            {
-                await _context.Database.ExecuteSqlCommandAsync($"delete from user where id = {id}");
-                return RedirectToAction(nameof(Index));
-            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit([Bind("ID, UnitNumber, Status")]User user)
+        {
+            var userTemp = _context.User.Find(user.ID);
+            userTemp.UpdateUser(user);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(actionName: nameof(Detail), routeValues: new { id = user.ID});
         }
 
         private bool UserExists(string id)

@@ -18,5 +18,11 @@ namespace MVC.Models
         [Column("Status"), Display(Name = "状态号")]
         public int Status { get; set; }
 
+        public void UpdateUser(User user)
+        {
+            UnitNumber = user.UnitNumber;
+            Status = user.Status;
+        }
+
     }
 }
