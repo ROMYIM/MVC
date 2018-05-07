@@ -6,7 +6,7 @@ namespace MVC.Models
     [Table("user")]
     public class User
     {
-        [Key, Column("ID"), Display(Name = "用户号"), Required(ErrorMessage = "用户号不能为空")]
+        [Key, Column("ID"), Display(Name = "用户号"), Required(ErrorMessage = "用户号不能为空"), MaxLength(11), MinLength(11)]
         public string ID { get; set; }
 
         [Column("PASSWORD"), Required(ErrorMessage = "密码不能为空")]

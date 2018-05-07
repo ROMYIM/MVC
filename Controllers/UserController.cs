@@ -40,7 +40,7 @@ namespace MVC.Controllers
             }
             else
             {
-                return BadRequest("用户已存在");
+                return BadRequest("用户已存在或输入信息有误");
             }
         }
 
