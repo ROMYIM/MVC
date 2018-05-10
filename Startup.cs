@@ -33,7 +33,7 @@ namespace MVC
                 optionsBuilder.UseMySQL(Configuration.GetConnectionString("default")));
             services.AddHangfire(c => c.UseMemoryStorage());
             services.AddMvc();
-            services.AddSingleton<ITask, IntervalTask>();
+            services.AddSingleton<IntervalTask>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
