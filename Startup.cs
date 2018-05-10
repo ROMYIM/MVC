@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Transactions;
 using Hangfire;
 using Hangfire.MemoryStorage;
-using Hangfire.MySql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MVC.Data;
 using MVC.Tasks;
-using Pomelo.AspNetCore.TimedJob.EntityFramework;
 
 namespace MVC
 {
