@@ -1,0 +1,10 @@
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\Release\netcoreapp2.0\MVC.deps.json
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\Release\netcoreapp2.0\MVC.runtimeconfig.json
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\Release\netcoreapp2.0\MVC.runtimeconfig.dev.json
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\Release\netcoreapp2.0\MVC.dll
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\Release\netcoreapp2.0\MVC.pdb
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Release\netcoreapp2.0\MVC.csproj.CoreCompileInputs.cache
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Release\netcoreapp2.0\MVC.AssemblyInfoInputs.cache
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Release\netcoreapp2.0\MVC.AssemblyInfo.cs
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Release\netcoreapp2.0\MVC.dll
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Release\netcoreapp2.0\MVC.pdb

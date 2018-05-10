@@ -19,3 +19,4 @@ C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.dll
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.pdb
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.csprojResolveAssemblyReference.cache
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Debug\netcoreapp2.0\MVC.csprojResolveAssemblyReference.cache

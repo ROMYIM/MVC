@@ -8,9 +8,15 @@ namespace MVC.Data
         public DbSet<User> User { get; set; }
         public DbSet<Equipment> Equipment { get; set; }
         public DbSet<Invitation> Invitation { get; set; }
+        public DbSet<Resident> Resident { get; set; }
         public DbSet<UserOpenInformation> UserOpenInformation { get; set; }
 
         public QrCoreContext(DbContextOptions<QrCoreContext> options) : base(options)
+        {
+            
+        }
+
+        public QrCoreContext()
         {
             
         }

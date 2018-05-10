@@ -1,0 +1,33 @@
+@model MVC.Models.User
+
+@{
+    ViewData["Title"] = "编辑信息";
+}
+
+<div class="row">
+    <h2>编辑用户信息</h2>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="User" asp-action="Edit" method="POST">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label">@Html.DisplayNameFor(model => model.ID)</label>
+                <input asp-for="ID" class="form-control" value="@Model.ID" readonly/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">@Html.DisplayNameFor(model => model.Password)</label>
+                <input asp-for="Password" class="form-control" value="@Model.Password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">@Html.DisplayNameFor(model => model.Status)</label>
+                <input asp-for="Status" class="form-control" value="@Model.Status"/>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="修改" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>

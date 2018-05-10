@@ -10,10 +10,10 @@ namespace MVC.Models
         [Key, Column("EquipmentID"), Required]
         public string EquipmentID { get; set; }
 
-        [Column("WorkTime")]
+        [Column("WorkingTime")]
         public int WorkingTime { get; set; }
 
-        [Column("Time"), DataType(DataType.Time)]
-        public DateTime Time { get; set; }
+        [Column("OpenNumber"), Required]
+        public int OpenNumber { get; set; }
     }
 }

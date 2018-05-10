@@ -1,0 +1,16 @@
+F:\MSI-PC\Documents\VisualStudioProjects\MVC
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=MVC
+--content-root=F:\MSI-PC\Documents\VisualStudioProjects\MVC
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\Home\About.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\Home\Contact.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\Home\Index.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\Shared\Error.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\Shared\_Layout.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\Shared\_ValidationScriptsPartial.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\User\Create.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\User\Detail.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\User\Edit.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\User\Index.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\_ViewImports.cshtml
+--file=F:\MSI-PC\Documents\VisualStudioProjects\MVC\Views\_ViewStart.cshtml

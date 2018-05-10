@@ -24,7 +24,7 @@
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.ID)</th>
-            <th>@Html.DisplayNameFor(model => model.UnitNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.Password)</th>
             <th>@Html.DisplayNameFor(model => model.Status)</th>
             <th>操作</th>
         </tr>
@@ -33,7 +33,7 @@
         @foreach(var item in Model) {
             <tr>
                 <td><h4>@Html.DisplayFor(modelItem => item.ID)</h4></td>
-                <td><h4>@Html.DisplayFor(modelItem => item.UnitNumber)</h4></td>
+                <td><h4>@Html.DisplayFor(modelItem => item.Password)</h4></td>
                 <td><h4>@Html.DisplayFor(modelItem => item.Status)</h4></td>
                 <td>
                     <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.ID&view=edit'">编辑</button>&nbsp;&nbsp;&nbsp;&nbsp;
