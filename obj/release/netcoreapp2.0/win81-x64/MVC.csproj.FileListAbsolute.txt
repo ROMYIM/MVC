@@ -1,0 +1,13 @@
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\release\netcoreapp2.0\win81-x64\hostpolicy.dll
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\release\netcoreapp2.0\win81-x64\hostfxr.dll
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\release\netcoreapp2.0\win81-x64\MVC.exe
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\release\netcoreapp2.0\win81-x64\MVC.deps.json
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\release\netcoreapp2.0\win81-x64\MVC.runtimeconfig.json
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\release\netcoreapp2.0\win81-x64\MVC.runtimeconfig.dev.json
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\release\netcoreapp2.0\win81-x64\MVC.dll
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\bin\release\netcoreapp2.0\win81-x64\MVC.pdb
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\release\netcoreapp2.0\win81-x64\MVC.csproj.CoreCompileInputs.cache
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\release\netcoreapp2.0\win81-x64\MVC.AssemblyInfoInputs.cache
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\release\netcoreapp2.0\win81-x64\MVC.AssemblyInfo.cs
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\release\netcoreapp2.0\win81-x64\MVC.dll
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\release\netcoreapp2.0\win81-x64\MVC.pdb

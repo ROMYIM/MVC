@@ -1,0 +1,55 @@
+@model IEnumerable<MVC.Models.User>
+
+@{
+    ViewData["Title"] = "用户列表";
+}
+
+<div class="row">
+    <div class="col-md-4"><h2>用户列表</h2></div>
+    <div class="col-md-6" style="padding-top: 2em">
+        <!-- <h4>查询用户：</h4> -->
+        <form class="form-inline" asp-action="Detail">
+            <div class="form-group"><input id="id" name="id" class="form-control" placeholder="输入用户号搜索" type="text" style="height:2em"/></div>
+            <button id="searchBtn" type="submit" class="btn btn-default">搜索用户</button>
+        </form>
+    </div>
+    <div class="col-md-2" style="padding-top:2em">
+        <p>
+            <a asp-action="Create"><h4>添加用户</h4></a>
+        </p>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ID)</th>
+            <th>@Html.DisplayNameFor(model => model.Password)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) {
+            <tr>
+                <td><h4>@Html.DisplayFor(modelItem => item.ID)</h4></td>
+                <td><h4>@Html.DisplayFor(modelItem => item.Password)</h4></td>
+                <td><h4>@Html.DisplayFor(modelItem => item.Status)</h4></td>
+                <td>
+                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.ID&view=edit'">编辑</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.ID&view=detail'">详细信息</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="confirmDelete('@item.ID')">删除</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script type="text/javascript">
+    function confirmDelete(itemID) {
+        if(confirm('确定要删除吗？删除后无法恢复！')) {
+            window.location.href='/user/delete/' + itemID;
+        } else {
+            window.location.href='/user/delete/';
+        }
+    }
+</script>

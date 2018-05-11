@@ -19,3 +19,14 @@ C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.dll
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.pdb
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.csprojResolveAssemblyReference.cache
+H:\MVC\MVC\bin\Debug\netcoreapp2.0\MVC.deps.json
+H:\MVC\MVC\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.json
+H:\MVC\MVC\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.dev.json
+H:\MVC\MVC\bin\Debug\netcoreapp2.0\MVC.dll
+H:\MVC\MVC\bin\Debug\netcoreapp2.0\MVC.pdb
+H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.csprojResolveAssemblyReference.cache
+H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.csproj.CoreCompileInputs.cache
+H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfoInputs.cache
+H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
+H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.dll
+H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.pdb
