@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using MVC.Data;
 using MVC.Tasks;
 
@@ -17,12 +18,14 @@ namespace MVC
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, ILoggerFactory loggerFactory)
         {
             Configuration = configuration;
+            LoggerFactory = loggerFactory;
         }
 
         public IConfiguration Configuration { get; }
+        public ILoggerFactory LoggerFactory { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -30,8 +33,10 @@ namespace MVC
             services.AddDbContext<QrCoreContext>(optionsBuilder => 
                 optionsBuilder.UseMySQL(Configuration.GetConnectionString("default")));
             services.AddHangfire(c => c.UseMemoryStorage());
+            services.AddTimedJob();
             services.AddMvc();
-            services.AddSingleton<IntervalTask>();
+            // services.AddScoped<IntervalTask>();
+            // services.AddSingleton<IntervalTask>(new IntervalTask(new QrCoreContext(Configuration.GetConnectionString("default")), LoggerFactory));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,13 +52,13 @@ namespace MVC
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseHangfireServer(
-                new BackgroundJobServerOptions
-                {
-                    WorkerCount = 1
-                }
-            );
+            app.UseHangfireServer();
+
             app.UseHangfireDashboard();
+
+            app.UseTimedJob();
+
+            // app.UseMiddleware<IntervalTask>();
 
             app.UseStaticFiles();
 

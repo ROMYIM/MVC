@@ -45,6 +45,18 @@ namespace MVC.Controllers
             return BadRequest("用户不存在或密码错误");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Register([Bind("ID, Password")]User user)
+        {
+            if (ModelState.IsValid && UserExists(user.ID))
+            { 
+                _context.User.Add(user);
+                int judgement = await _context.SaveChangesAsync();
+                return Json(new Result(judgement));
+            }
+            return Json(new Result(0));
+        }
+
         public IActionResult Create()
         {
             return View();
