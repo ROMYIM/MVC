@@ -13,7 +13,7 @@ namespace MVC.Models
         [Column("EquipmentID")]
         public string EquipmentID { get; set; }
 
-        [Column("time"), DataType(DataType.Time)]
+        [Column("time"), DataType(DataType.DateTime)]
         public DateTime Time { get; set; }
     }
 }
