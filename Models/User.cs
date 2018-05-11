@@ -9,20 +9,22 @@ namespace MVC.Models
         [Key, Column("ID"), Display(Name = "用户号"), Required(ErrorMessage = "用户号不能为空"), MaxLength(11), MinLength(11)]
         public string ID { get; set; }
 
-        [Column("PASSWORD"), Required(ErrorMessage = "密码不能为空")]
+        [Column("PASSWORD"), Display(Name = "密码"), Required(ErrorMessage = "密码不能为空")]
         public string Password { get; set; }
 
-        [Column("UnitNumber"), Display(Name = "单元号"), Required(ErrorMessage = "单元号不能为空")]
-        public string UnitNumber { get; set; }
 
-        [Column("Status"), Display(Name = "状态号")]
-        public int Status { get; set; }
+        [Column("Status"), Display(Name = "身份"), Required(ErrorMessage = "请出示身份标识")]
+        public Status Status { get; set; }
 
-        public void UpdateUser(User user)
+        public User()
         {
-            UnitNumber = user.UnitNumber;
-            Status = user.Status;
+            Status = Status.Normal_User;
         }
 
+    }
+
+    public enum Status
+    {
+        Administrator, Normal_User
     }
 }

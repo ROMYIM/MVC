@@ -12,16 +12,16 @@
         <form asp-controller="User" asp-action="Edit" method="POST">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ID" class="control-label">用户号</label>
+                <label asp-for="ID" class="control-label">@Html.DisplayNameFor(model => model.ID)</label>
                 <input asp-for="ID" class="form-control" value="@Model.ID" readonly/>
             </div>
             <div class="form-group">
-                <label asp-for="UnitNumber" class="control-label">单元号</label>
-                <input asp-for="UnitNumber" class="form-control" value="@Model.UnitNumber"/>
-                <span asp-validation-for="UnitNumber" class="text-danger"></span>
+                <label asp-for="Password" class="control-label">@Html.DisplayNameFor(model => model.Password)</label>
+                <input asp-for="Password" class="form-control" value="@Model.Password"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label">状态</label>
+                <label asp-for="Status" class="control-label">@Html.DisplayNameFor(model => model.Status)</label>
                 <input asp-for="Status" class="form-control" value="@Model.Status"/>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>

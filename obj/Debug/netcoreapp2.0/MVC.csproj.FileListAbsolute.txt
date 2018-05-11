@@ -19,6 +19,7 @@ C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.dll
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.pdb
 C:\Users\PC-001\source\MVC\obj\Debug\netcoreapp2.0\MVC.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
 H:\MVC\MVC\bin\Debug\netcoreapp2.0\MVC.deps.json
 H:\MVC\MVC\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.json
 H:\MVC\MVC\bin\Debug\netcoreapp2.0\MVC.runtimeconfig.dev.json
@@ -30,3 +31,6 @@ H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfoInputs.cache
 H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.AssemblyInfo.cs
 H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.dll
 H:\MVC\MVC\obj\Debug\netcoreapp2.0\MVC.pdb
+=======
+F:\MSI-PC\Documents\VisualStudioProjects\MVC\obj\Debug\netcoreapp2.0\MVC.csprojResolveAssemblyReference.cache
+>>>>>>> 70524729a5cb64edcdb1293f59e4ffa63e58f550

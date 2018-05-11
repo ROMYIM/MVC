@@ -24,15 +24,48 @@ namespace MVC.Controllers
             return View(model: await _context.User.ToListAsync());
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Login([Bind("ID, Password, Status"), FromForm]User user)
+        {
+            if (ModelState.IsValid)
+            {
+                var userTemp = await _context.User.FindAsync(user.ID);
+                if (userTemp != null && userTemp.Password == user.Password)
+                {
+                    if (userTemp.Status == Status.Administrator)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        return Json(new Result(1));
+                    }
+                }
+            }
+            return BadRequest("用户不存在或密码错误");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register([Bind("ID, Password")]User user)
+        {
+            if (ModelState.IsValid && UserExists(user.ID))
+            { 
+                _context.User.Add(user);
+                int judgement = await _context.SaveChangesAsync();
+                return Json(new Result(judgement));
+            }
+            return Json(new Result(0));
+        }
+
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID, Password, UnitNumber")]User user)
+        public async Task<IActionResult> Create([Bind("ID, Password")]User user)
         {
-            if (ModelState.IsValid && !UserExists(user.ID))
+            if (ModelState.IsValid && UserExists(user.ID))
             {
                 _context.User.Add(user);
                 await _context.SaveChangesAsync();
@@ -79,14 +112,13 @@ namespace MVC.Controllers
         public async Task<IActionResult> Edit([Bind("ID, UnitNumber, Status")]User user)
         {
             var userTemp = _context.User.Find(user.ID);
-            userTemp.UpdateUser(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(actionName: nameof(Detail), routeValues: new { id = user.ID});
         }
 
         private bool UserExists(string id)
         {
-            return _context.User.Any(e => e.ID == id);
+            return (!_context.User.Any(e => e.ID == id) && _context.Resident.Any(r => r.PhoneNumber == id));
         }
     }
 }

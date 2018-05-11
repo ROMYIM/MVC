@@ -1,8 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model MVC.Models.User
+
+@{
+    ViewData["Title"] = "登录页面";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -103,4 +105,46 @@
             <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
         </ul>
     </div>
+</div> -->
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="padding-top:1em">
+        <form class="form-horizontal" asp-controller="user" asp-action="login" method="POST">
+            <div class="form-group">
+                <label asp-for="ID" class="col-sm-3 control-label">@Html.DisplayNameFor(model => model.ID)</label>
+                <div class="col-sm-9">
+                    <input asp-for="ID" type="number"  class="form-control" placeholder="请输入账号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"  class="col-sm-3 control-label">@Html.DisplayNameFor(model => model.Password)</label>
+                <div class="col-sm-9">
+                    <input asp-for="Password" type="password"  class="form-control" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="Status"  class="col-sm-3 control-label">@Html.DisplayNameFor(model => model.Status)</label>
+                <div class="col-sm-9">
+                    <input asp-for="Status" type="text"  class="form-control" value="Administrator">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> 记住
+                        </label>
+                    </div>
+                </div>
+            </div> -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-offset-5 col-sm-5" style="padding-top:2em">
+                        <button type="submit" class="btn btn-default">登录</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
 </div>
