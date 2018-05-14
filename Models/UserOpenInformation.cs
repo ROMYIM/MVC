@@ -12,7 +12,7 @@ namespace MVC.Models
 
         [Column("EquipmentID"), Display(Name = "设备号")]
         public string EquipmentID { get; set; }
-
+        
         [Column("time"), DataType(DataType.Time), Display(Name = "开门时间")]
         public DateTime? Time { get; set; }
 
@@ -25,5 +25,6 @@ namespace MVC.Models
         {
             this.ID = id;
         }
+
     }
 }

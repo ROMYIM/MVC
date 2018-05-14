@@ -19680,12 +19680,30 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+=======
     "E:\\Program Files\\Nuget\\packages": {},
     "E:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+>>>>>>> 70524729a5cb64edcdb1293f59e4ffa63e58f550
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "H:\\MVC\\MVC\\MVC.csproj",
+      "projectName": "MVC",
+      "projectPath": "H:\\MVC\\MVC\\MVC.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "H:\\MVC\\MVC\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
       "projectUniqueName": "F:\\MSI-PC\\Documents\\VisualStudioProjects\\MVC\\MVC.csproj",
       "projectName": "MVC",
       "projectPath": "F:\\MSI-PC\\Documents\\VisualStudioProjects\\MVC\\MVC.csproj",
@@ -19697,6 +19715,7 @@
       ],
       "configFilePaths": [
         "C:\\Users\\MSI-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> 70524729a5cb64edcdb1293f59e4ffa63e58f550
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
