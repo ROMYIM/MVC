@@ -1,9 +1,11 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MVC.Data;
+using MVC.Extensions;
 using MVC.Models;
 
 namespace MVC.Controllers
@@ -25,13 +27,14 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([Bind("ID, Password, Status"), FromForm]User user)
+        public async Task<IActionResult> Login([Bind("ID, Password"), FromForm]User user)
         {
             if (ModelState.IsValid)
             {
                 var userTemp = await _context.User.FindAsync(user.ID);
                 if (userTemp != null && userTemp.Password == user.Password)
                 {
+                    HttpContext.Session.SetString("ID", user.ID);
                     if (userTemp.Status == Status.Administrator)
                     {
                         return RedirectToAction(nameof(Index));
@@ -114,6 +117,22 @@ namespace MVC.Controllers
             var userTemp = _context.User.Find(user.ID);
             await _context.SaveChangesAsync();
             return RedirectToAction(actionName: nameof(Detail), routeValues: new { id = user.ID});
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetOpenNumber(string id)
+        {
+            if (_context.User.Any(u => u.ID == id))
+            {
+                if ( _context.UserOpenInformation.Any(o => o.EquipmentID == id))
+                {
+                    _context.UserOpenInformation.Add(new UserOpenInformation(id));
+                    await _context.SaveChangesAsync();
+                }
+                var equipment = await _context.Equipment.FirstAsync();
+                return Json(new Result(equipment.OpenNumber));
+            }
+            return Json(new Result(0));
         }
 
         private bool UserExists(string id)

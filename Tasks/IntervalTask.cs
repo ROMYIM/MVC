@@ -29,13 +29,13 @@ namespace MVC.Tasks
             this._logger = loggerFactory.CreateLogger<IntervalTask>();
         }
 
-        [Invoke(Begin = "2016-6-12 18:00", Interval = 1000 * 60)]
+        [Invoke(Begin = "2016-6-12 18:00", Interval = 1000 * 1800)]
         public void UpdateOpenNumber()
         {
             _logger.LogDebug("定时任务运行");
             var openNumber = _context.Equipment.First().OpenNumber;
             _logger.LogDebug($"库存openNumber:{openNumber}");
-            openNumber = new Random(openNumber).Next(1000, 10000);
+            openNumber = new Random().Next(1000, 10000);
             _logger.LogDebug($"修改后openNumber:{openNumber}");
             _context.Database.ExecuteSqlCommand($"update equipment set OpenNumber = {openNumber}");
             _context.SaveChanges();

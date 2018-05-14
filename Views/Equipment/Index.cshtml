@@ -1,0 +1,46 @@
+@model IEnumerable<MVC.Models.Equipment>
+
+@{
+    ViewData["Title"] = "设备列表";
+}
+
+<div class="row">
+    <div class="col-md-4"><h2>设备列表</h2></div>
+    <div class="col-md-6" style="padding-top: 2em">
+        <!-- <h4>查询用户：</h4> -->
+        <form class="form-inline" asp-action="Detail">
+            <div class="form-group"><input id="id" name="equipmentID" class="form-control" placeholder="输入设备号搜索" type="text" style="height:2em"/></div>
+            <button id="searchBtn" type="submit" class="btn btn-default">搜索设备</button>
+        </form>
+    </div>
+    <div class="col-md-2" style="padding-top:2em">
+        <p>
+            <a asp-action="Detail"><h4>添加设备</h4></a>
+        </p>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.EquipmentID)</th>
+            <th>@Html.DisplayNameFor(model => model.WorkingTime)</th>
+            <th>@Html.DisplayNameFor(model => model.OpenNumber)</th>
+            <!-- <th>操作</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) {
+            <tr>
+                <td><h4>@Html.DisplayFor(modelItem => item.EquipmentID)</h4></td>
+                <td><h4>@Html.DisplayFor(modelItem => item.WorkingTime)</h4></td>
+                <td><h4>@Html.DisplayFor(modelItem => item.OpenNumber)</h4></td>
+                <!-- <td>
+                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.EquipmentID&view=edit'">编辑</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.EquipmentID&view=detail'">详细信息</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="confirmDelete('@item.EquipmentID')">删除</button>
+                </td> -->
+            </tr>
+        }
+    </tbody>
+</table>

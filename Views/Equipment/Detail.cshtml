@@ -1,0 +1,51 @@
+@model MVC.Models.Equipment
+
+@{
+    ViewData["Title"] = "设备信息";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>设备信息</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Equipment" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EquipmentID" class="control-label">@Html.DisplayNameFor(model => model.EquipmentID)</label>
+                @if(Model != null) {
+                    <input asp-for="EquipmentID" class="form-control" value="@Model.EquipmentID" readonly/>
+                } else {
+                    <input asp-for="EquipmentID" class="form-control"/>
+                    <span asp-validation-for="EquipmentID" class="text-danger"></span>
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkingTime" class="control-label">@Html.DisplayNameFor(model => model.WorkingTime)</label>
+                @if(Model != null) {
+                    <input asp-for="WorkingTime" class="form-control" value="@Model.WorkingTime" readonly/>
+                } else {
+                    <input asp-for="WorkingTime" class="form-control"/>
+                    <span asp-validation-for="WorkingTime" class="text-danger"></span>
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="OpenNumber" class="control-label">@Html.DisplayNameFor(model => model.OpenNumber)</label>
+                @if(Model != null) {
+                    <input asp-for="OpenNumber" class="form-control" value="@Model.OpenNumber" readonly/>
+                } else {
+                    <input asp-for="OpenNumber" class="form-control"/>
+                    <span asp-validation-for="OpenNumber" class="text-danger"></span>
+                }
+            </div>
+            @if(Model == null) {
+                <div class="form-group">
+                    <input type="submit" value="创建" class="btn btn-default"/>
+                </div>
+            }
+        </form>
+    </div>
+</div>
