@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MVC.Data;
+using MVC.Utils;
 using Pomelo.AspNetCore.TimedJob;
 
 namespace MVC.Tasks
@@ -27,18 +28,18 @@ namespace MVC.Tasks
         {
             this._context = context;
             this._logger = loggerFactory.CreateLogger<IntervalTask>();
+            _logger.LogDebug("定时任务初始化");
         }
 
-        [Invoke(Begin = "2016-6-12 18:00", Interval = 1000 * 1800)]
-        public void UpdateOpenNumber()
+        [Invoke(Begin = "2016-6-12 18:00", Interval = 1000 * 60)]
+        public async Task UpdateOpenNumber()
         {
             _logger.LogDebug("定时任务运行");
-            var openNumber = _context.Equipment.First().OpenNumber;
-            _logger.LogDebug($"库存openNumber:{openNumber}");
-            openNumber = new Random().Next(1000, 10000);
-            _logger.LogDebug($"修改后openNumber:{openNumber}");
-            _context.Database.ExecuteSqlCommand($"update equipment set OpenNumber = {openNumber}");
-            _context.SaveChanges();
+            if (this.UpdateOpenNumbers())
+            {
+                _context.UserOpenInformation.RemoveRange(_context.UserOpenInformation);
+                await _context.SaveChangesAsync();
+            }
         }
 
         // public async Task InvokeAsync(HttpContext context)

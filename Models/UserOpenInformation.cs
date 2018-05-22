@@ -7,8 +7,8 @@ namespace MVC.Models
     [Table("user_open_information")]
     public class UserOpenInformation
     {
-        [Key, Column("ID"), Display(Name = "用户号")]
-        public string ID { get; set; }
+        [Key, Column("OpenNumber"), Display(Name = "开门号")]
+        public int OpenNumber { get; set; }
 
         [Column("EquipmentID"), Display(Name = "设备号")]
         public string EquipmentID { get; set; }
@@ -16,15 +16,31 @@ namespace MVC.Models
         [Column("time"), DataType(DataType.Time), Display(Name = "开门时间")]
         public DateTime? Time { get; set; }
 
+        [Column("Result"), Display(Name = "开门结果")]
+        public bool Result { get; set; }
+
+        [Column("UserID"), Display(Name = "用户号")]
+        public string UserID { get; set; }
+        [ForeignKey("UserID")]
+        public User User { get; set; }
+
+
         public UserOpenInformation()
         {
             
         }
 
-        public UserOpenInformation(string id)
+        public UserOpenInformation(User user, int openNumber)
         {
-            this.ID = id;
+            this.OpenNumber = openNumber;
+            this.User = user;
+            this.UserID = user.ID;
+            this.Result = false;
         }
+    }
 
+    public enum OpenResult
+    {
+        Failed, Success
     }
 }

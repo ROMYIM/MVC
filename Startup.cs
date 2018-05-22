@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using MVC.Data;
 using MVC.Extensions;
 using MVC.Tasks;
+using MVC.Utils;
 
 namespace MVC
 {
@@ -38,6 +39,7 @@ namespace MVC
                 optionsBuilder.UseMySQL(Configuration.GetConnectionString("default")));
             // services.AddHangfire(c => c.UseMemoryStorage());
             services.AddTimedJob();
+            OpenNumberUtil.CreateOpenNumbers(100000);
             services.AddMvc();
             // services.AddScoped<IntervalTask>();
             // services.AddSingleton<IntervalTask>(new IntervalTask(new QrCoreContext(Configuration.GetConnectionString("default")), LoggerFactory));

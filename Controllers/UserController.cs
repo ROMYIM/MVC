@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using MVC.Data;
 using MVC.Extensions;
 using MVC.Models;
+using MVC.Utils;
 
 namespace MVC.Controllers
 {
@@ -122,15 +123,13 @@ namespace MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> GetOpenNumber(string id)
         {
-            if (_context.User.Any(u => u.ID == id))
+            var user = _context.User.Find(id);
+            if (user != null)
             {
-                if ( _context.UserOpenInformation.Any(o => o.EquipmentID == id))
-                {
-                    _context.UserOpenInformation.Add(new UserOpenInformation(id));
-                    await _context.SaveChangesAsync();
-                }
-                var equipment = await _context.Equipment.FirstAsync();
-                return Json(new Result(equipment.OpenNumber));
+                var openNumber = this.GetOpenNumber();
+                _context.UserOpenInformation.Add(new UserOpenInformation(user, openNumber));
+                await _context.SaveChangesAsync();
+                return Json(new Result(openNumber));
             }
             return Json(new Result(0));
         }

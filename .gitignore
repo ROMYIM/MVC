@@ -23,3 +23,5 @@ obj/release/netcoreapp2.0/MVC.PrecompiledViews.dll
 obj/release/netcoreapp2.0/MVC.PrecompiledViews.pdb
 obj/release/netcoreapp2.0/MVC.csproj.CoreCompileInputs.cache
 obj/release/netcoreapp2.0/microsoft.aspnetcore.mvc.razor.viewcompilation.rsp
+obj/MVC.csproj.nuget.g.props
+obj/MVC.csproj.nuget.g.targets

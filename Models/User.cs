@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,6 +16,8 @@ namespace MVC.Models
 
         [Column("Status"), Display(Name = "身份"), Required(ErrorMessage = "请出示身份标识")]
         public Status Status { get; set; }
+
+        public ICollection<UserOpenInformation> Informations { get; set; }
 
         public User()
         {

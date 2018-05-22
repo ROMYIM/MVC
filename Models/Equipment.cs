@@ -12,8 +12,5 @@ namespace MVC.Models
 
         [Column("WorkingTime"), Display(Name = "工作次数")]
         public int WorkingTime { get; set; }
-
-        [Column("OpenNumber"), Required, Display(Name = "开门号码")]
-        public int OpenNumber { get; set; }
     }
 }

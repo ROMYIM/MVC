@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MVC.Data;
 using MVC.Models;
+using Newtonsoft.Json.Linq;
 
 namespace MVC.Controllers
 {
@@ -27,16 +28,20 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> OpenDoor([Bind("EquipmentID, OpenNumber"), FromBody]Equipment equipment)
+        public async Task<IActionResult> OpenDoor([FromBody]JObject json)
         {
             if (ModelState.IsValid)
             {
-                if (_context.Equipment.Where(e => e.EquipmentID == equipment.EquipmentID && e.OpenNumber == equipment.OpenNumber).Any())
+                var equipmentID = json["equipmentid"].Value<string>();
+                var openNumber = json["opennumber"].Value<int>();
+                var equipment = _context.Equipment.Find(equipmentID);
+                var openInformation = _context.UserOpenInformation.Find(openNumber);
+                if (equipment != null && openInformation != null && !openInformation.Result)
                 {
-                    var equipmentTemp = _context.Equipment.Find(equipment.EquipmentID);
-                    equipmentTemp.WorkingTime++;
-                    var operationTime = DateTime.Now;
-                    _context.Database.ExecuteSqlCommand($"update open_door_information set time = {operationTime} where EquipmentID = {equipment.EquipmentID}");
+                    equipment.WorkingTime++;
+                    openInformation.EquipmentID = equipmentID;
+                    openInformation.Time = DateTime.Now;
+                    openInformation.Result = true;
                     await _context.SaveChangesAsync();
                     return Json(new Result(1));
                 }
@@ -71,6 +76,16 @@ namespace MVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return BadRequest("操作失败");
+        }
+
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                _context.Equipment.Remove(_context.Equipment.Find(id));
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }
