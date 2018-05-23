@@ -34,6 +34,7 @@ namespace MVC
             services.AddDistributedMemoryCache();
             services.AddSession(options => 
             {
+                options.IdleTimeout = TimeSpan.FromMinutes(3);
             });
             services.AddDbContext<QrCoreContext>(optionsBuilder => 
                 optionsBuilder.UseMySQL(Configuration.GetConnectionString("default")));
@@ -70,7 +71,7 @@ namespace MVC
 
             app.UseSession();
 
-            // app.UseLogin();
+            app.UseLogin();
 
             app.UseMvc(routes =>
             {

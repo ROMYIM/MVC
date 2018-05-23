@@ -32,15 +32,6 @@
                     <span asp-validation-for="WorkingTime" class="text-danger"></span>
                 }
             </div>
-            <div class="form-group">
-                <label asp-for="OpenNumber" class="control-label">@Html.DisplayNameFor(model => model.OpenNumber)</label>
-                @if(Model != null) {
-                    <input asp-for="OpenNumber" class="form-control" value="@Model.OpenNumber" readonly/>
-                } else {
-                    <input asp-for="OpenNumber" class="form-control"/>
-                    <span asp-validation-for="OpenNumber" class="text-danger"></span>
-                }
-            </div>
             @if(Model == null) {
                 <div class="form-group">
                     <input type="submit" value="创建" class="btn btn-default"/>

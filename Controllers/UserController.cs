@@ -35,7 +35,7 @@ namespace MVC.Controllers
                 var userTemp = await _context.User.FindAsync(user.ID);
                 if (userTemp != null && userTemp.Password == user.Password)
                 {
-                    HttpContext.Session.SetString("ID", user.ID);
+                    // HttpContext.Session.SetString("ID", user.ID);
                     if (userTemp.Status == Status.Administrator)
                     {
                         return RedirectToAction(nameof(Index));
@@ -69,7 +69,7 @@ namespace MVC.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID, Password")]User user)
         {
-            if (ModelState.IsValid && UserExists(user.ID))
+            if (ModelState.IsValid && !UserExists(user.ID))
             {
                 _context.User.Add(user);
                 await _context.SaveChangesAsync();
@@ -127,8 +127,11 @@ namespace MVC.Controllers
             if (user != null)
             {
                 var openNumber = this.GetOpenNumber();
-                _context.UserOpenInformation.Add(new UserOpenInformation(user, openNumber));
-                await _context.SaveChangesAsync();
+                if (openNumber >= 0)
+                {
+                    _context.UserOpenInformation.Add(new UserOpenInformation(user, openNumber));
+                    await _context.SaveChangesAsync();
+                }
                 return Json(new Result(openNumber));
             }
             return Json(new Result(0));

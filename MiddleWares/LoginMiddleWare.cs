@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -22,22 +23,25 @@ namespace MVC.MiddleWares
         {
             // await context.Session.LoadAsync();
             var path = context.Request.Path.Value.Trim();
-            var headers = context.Request.Headers;
-            foreach (var header in headers)
-            {
-                _logger.LogDebug($"key:{header.Key},value:{header.Value}");
-            }
+            // var headers = context.Request.Headers;
+            // foreach (var header in headers)
+            // {
+            //     _logger.LogDebug($"key:{header.Key},value:{header.Value}");
+            // }
             var session = context.Session;
-            var ID = session.GetString("ID");
-            if (string.IsNullOrEmpty(ID))
+            var id = session.GetString("ID");
+            var status = session.GetString("Status");
+            if (string.IsNullOrEmpty(id))
             {
-                if (path == "/user/login" || path == "/")
+                if (path == "/user/login" || path == "/" || path == "/equipment/opendoor")
                 {
                     await _next.Invoke(context);
                     if (path == "/user/login")
                     {
-                        ID = "4444";
-                        session.SetString("ID", ID);
+                        id = context.Request.Form["ID"];
+                        status = context.Request.Form["Status"];
+                        session.SetString("ID", id);
+                        session.SetString("Status", status);
                         // await session.CommitAsync();
                     }
                 }
@@ -48,11 +52,14 @@ namespace MVC.MiddleWares
             }
             else
             {
-                session.GetString("ID");
-                if (path != "/user/login" && path != "/")
+                if (path == "/user/login" || path == "/")
                 {
-                    await _next.Invoke(context);
+                    if (!string.IsNullOrEmpty(status) && status == "Administrator")
+                    {
+                        context.Response.Redirect("/user");
+                    }
                 }
+                await _next.Invoke(context);
             }
         }
     }

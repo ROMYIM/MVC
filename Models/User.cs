@@ -21,13 +21,17 @@ namespace MVC.Models
 
         public User()
         {
-            Status = Status.Normal_User;
+            // Status = Status.Normal_User;
         }
 
     }
 
     public enum Status
     {
-        Administrator, Normal_User
+        [Display(Name = "系统管理员")]
+        Administrator, 
+
+        [Display(Name = "普通用户")]
+        NormalUser
     }
 }

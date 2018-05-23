@@ -25,8 +25,7 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.EquipmentID)</th>
             <th>@Html.DisplayNameFor(model => model.WorkingTime)</th>
-            <th>@Html.DisplayNameFor(model => model.OpenNumber)</th>
-            <!-- <th>操作</th> -->
+            <th>操作</th>
         </tr>
     </thead>
     <tbody>
@@ -34,13 +33,21 @@
             <tr>
                 <td><h4>@Html.DisplayFor(modelItem => item.EquipmentID)</h4></td>
                 <td><h4>@Html.DisplayFor(modelItem => item.WorkingTime)</h4></td>
-                <td><h4>@Html.DisplayFor(modelItem => item.OpenNumber)</h4></td>
-                <!-- <td>
-                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.EquipmentID&view=edit'">编辑</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.EquipmentID&view=detail'">详细信息</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+                    <!-- <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.EquipmentID&view=edit'">编辑</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default" style="height:2em, padding:0em" onclick="window.location.href='/user/detail?id=@item.EquipmentID&view=detail'">详细信息</button>&nbsp;&nbsp;&nbsp;&nbsp; -->
                     <button class="btn btn-default" style="height:2em, padding:0em" onclick="confirmDelete('@item.EquipmentID')">删除</button>
-                </td> -->
+                </td> 
             </tr>
         }
     </tbody>
 </table>
+<script type="text/javascript">
+    function confirmDelete(itemID) {
+        if(confirm('确定要删除吗？删除后无法恢复！')) {
+            window.location.href='/equipment/delete/' + itemID;
+        } else {
+            window.location.href='/equipment/delete/';
+        }
+    }
+</script>

@@ -21,7 +21,7 @@ namespace MVC
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder()
-                .UseUrls($"http://*:5000")
+                .UseUrls($"http://192.168.43.109:5000")
                 .UseStartup<Startup>()
                 .Build();
     }
