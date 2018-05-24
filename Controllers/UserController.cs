@@ -35,6 +35,7 @@ namespace MVC.Controllers
                 var userTemp = await _context.User.FindAsync(user.ID);
                 if (userTemp != null && userTemp.Password == user.Password)
                 {
+                    user.Password = null;
                     HttpContext.Session.Set<User>("user", user);
                     if (userTemp.Status == Status.Administrator)
                     {
