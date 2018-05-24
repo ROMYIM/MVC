@@ -28,14 +28,14 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([Bind("ID, Password"), FromForm]User user)
+        public async Task<IActionResult> Login([Bind("ID, Password, Status"), FromForm]User user)
         {
             if (ModelState.IsValid)
             {
                 var userTemp = await _context.User.FindAsync(user.ID);
                 if (userTemp != null && userTemp.Password == user.Password)
                 {
-                    // HttpContext.Session.SetString("ID", user.ID);
+                    HttpContext.Session.Set<User>("user", user);
                     if (userTemp.Status == Status.Administrator)
                     {
                         return RedirectToAction(nameof(Index));

@@ -39,7 +39,8 @@ namespace MVC.Controllers
                 if (equipment != null && openInformation != null && !openInformation.Result)
                 {
                     equipment.WorkingTime++;
-                    openInformation.EquipmentID = equipmentID;
+                    openInformation.Equipment = equipment;
+                    openInformation.EquipmentID = equipment.EquipmentID;
                     openInformation.Time = DateTime.Now;
                     openInformation.Result = true;
                     await _context.SaveChangesAsync();

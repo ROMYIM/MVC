@@ -21,29 +21,13 @@ namespace MVC.MiddleWares
 
         public async Task Invoke(HttpContext context)
         {
-            // await context.Session.LoadAsync();
             var path = context.Request.Path.Value.Trim();
-            // var headers = context.Request.Headers;
-            // foreach (var header in headers)
-            // {
-            //     _logger.LogDebug($"key:{header.Key},value:{header.Value}");
-            // }
-            var session = context.Session;
-            var id = session.GetString("ID");
-            var status = session.GetString("Status");
-            if (string.IsNullOrEmpty(id))
+            var user = context.Session.Get<User>("user");
+            if (user == null)
             {
                 if (path == "/user/login" || path == "/" || path == "/equipment/opendoor")
                 {
                     await _next.Invoke(context);
-                    if (path == "/user/login")
-                    {
-                        id = context.Request.Form["ID"];
-                        status = context.Request.Form["Status"];
-                        session.SetString("ID", id);
-                        session.SetString("Status", status);
-                        // await session.CommitAsync();
-                    }
                 }
                 else
                 {
@@ -54,7 +38,7 @@ namespace MVC.MiddleWares
             {
                 if (path == "/user/login" || path == "/")
                 {
-                    if (!string.IsNullOrEmpty(status) && status == "Administrator")
+                    if (user.Status == Status.Administrator)
                     {
                         context.Response.Redirect("/user");
                     }

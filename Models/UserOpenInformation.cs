@@ -12,6 +12,8 @@ namespace MVC.Models
 
         [Column("EquipmentID"), Display(Name = "设备号")]
         public string EquipmentID { get; set; }
+        [ForeignKey("EquipmentID")]
+        public Equipment Equipment { get; set; }
         
         [Column("time"), DataType(DataType.DateTime), Display(Name = "开门时间")]
         public DateTime? Time { get; set; }

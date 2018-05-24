@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,5 +13,7 @@ namespace MVC.Models
 
         [Column("WorkingTime"), Display(Name = "工作次数")]
         public int WorkingTime { get; set; }
+
+        public ICollection<UserOpenInformation> Informations { get; set; }
     }
 }
