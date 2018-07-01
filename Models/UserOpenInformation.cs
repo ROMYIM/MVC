@@ -23,6 +23,7 @@ namespace MVC.Models
 
         [Column("UserID"), Display(Name = "用户号")]
         public string UserID { get; set; }
+        
         [ForeignKey("UserID")]
         public User User { get; set; }
 
